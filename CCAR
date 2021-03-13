@@ -5,27 +5,44 @@
 // Created by wpfang on 2021/3/8.
 // Copyright © 2021 wpfang. All rights reserved.
 //
+/**
+ *@author  1092027 羅尹晴
+ *@version  1.0
+ *@param
+ *@return
+ *@exception
+ *@since  2021-03-12
+*/
 #include <iostream>
 #include <string>
 using namespace std;
-class CCAR {
+class CCAR {//create a new class
 private:
-string nickname;
+string nickname;//declare a new string
 protected:
-int light;
-int wheel;
+int light;//the variable of light's quantity
+int wheel;//the variable of wheel's quantity
 public:
-CCAR() :light(2)
+/**
+ *the constructor of CCAR.
+ *when the object of this class was declared, automatic execution this function. 
+ *if the object have param(nickname), use the constructor that have param(string nickname), otherwise, use the constructor no param.
+*/
+CCAR() :light(2)//set up light's quantity is 2
 {
-wheel = 5;
+wheel = 5;//set up wheel's quantity is 5
 cout << "car's constructor(wheel=" << wheel << ")" << endl;
 }
-CCAR(string nickname) :light(2)
+CCAR(string nickname) :light(2)//incoming string param named as "nickname" and set up light's quantity is 2
 {
 wheel = 5;
-this->nickname = nickname;
+this->nickname = nickname;//store the input value in string param "nickname"
 cout << "car's constructor(nickname=" << nickname << ")" << endl;
 }
+/**
+ *the destructor of CCAR.
+ *when the program of this class before leaving the memory, automatic execution this function. 
+*/
 ~CCAR()
 {
 cout << "car's destructor" << "(" << nickname << ")" << endl;
@@ -44,7 +61,7 @@ cout << "car's turn" << endl;
 }
 };
 //--------------------------
-class CBMW : public CCAR {
+class CBMW : public CCAR {//create a new class inherited from class CCAR
 public:
 CBMW() { light = 4; wheel = 4; cout << "bmw's constructor" << endl; }
 ~CBMW() { cout << "bmw's destructor" << endl; }
